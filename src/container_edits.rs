@@ -61,8 +61,7 @@ impl ContainerEdits {
             for d in device_nodes {
                 let mut dn: DeviceNode = DeviceNode { node: d.clone() };
 
-                dn.fill_missing_info()
-                    .context("filling missing info failed.")?;
+                dn.fill_missing_info()?;
 
                 let d = &dn.node;
                 let mut dev = dn.node.to_oci()?;
